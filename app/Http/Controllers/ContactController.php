@@ -10,9 +10,9 @@ class ContactController extends Controller
     public function send(Request $request)
     {
         $data =$request->validate([
-            'sender_name' => 'required|max:255',
-            'sender_email' => 'required|max:255',
-            'sender_message' => 'required|max:5000',
+            'sender_name' => 'required|string|max:255',
+            'sender_email' => 'required|email|max:255',
+            'sender_message' => 'required|string|max:5000',
         ]);
 Mail::send([], [], function ($message) use ($data) {
 

@@ -32,13 +32,9 @@ $data['totalFormatted'] = str_replace(
 
         return $pdf->download('renovation-summary.pdf');
 
-    } catch (\Throwable $e) {
-
-        dd(
-            $e->getMessage(),
-            $e->getFile(),
-            $e->getLine()
-        );
-    }
+    }  catch (\Throwable $e) {
+    report($e);   // logs the error 
+    return back()->with('error', 'Sorry, we could not generate the PDF. Please try again.');
+}
 }
 }

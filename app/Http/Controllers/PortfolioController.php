@@ -8,7 +8,12 @@ use Illuminate\Support\Facades\Storage;
 
 class PortfolioController extends Controller
 {
-    public function index($id)
+    public function index()
+    {
+        return redirect('/#portfolio');
+    }
+
+    public function show($id)
     {
         $portfolio = portfolio::with('images')->findOrFail($id);
 
@@ -112,19 +117,26 @@ class PortfolioController extends Controller
             'lng' => $request->lng,
             'rooms' => $request->rooms,
         ]);
-        if ($request->hasFile('images')) {
-
-    foreach ($request->file('images') as $image) {
-
-        $path = $image->store("portfolio/{$portfolio->id}/gallery", 'public');
-
-        $portfolio->images()->create([
-            'portfolio_id' => $portfolio->id,
-            'image' => $path
+        if ($request->hasFile('cover_image')) {
+        if ($portfolio->cover_image) {
+            Storage::disk('public')->delete($portfolio->cover_image); // remove old file
+        }
+        $portfolio->update([
+            'cover_image' => $request->file('cover_image')->store("portfolio/{$portfolio->id}", 'public'),
         ]);
     }
-}
 
-        return view('website.portfolio.imagesPortfolio', compact('portfolio'));
+    // add new gallery images
+    if ($request->hasFile('images')) {
+        foreach ($request->file('images') as $image) {
+            $portfolio->images()->create([
+                'image' => $image->store("portfolio/{$portfolio->id}/gallery", 'public'),
+            ]);
+        }
+    }
+
+
+    return redirect()->route('images', $portfolio->id)->with('success', 'Portfolio updated');
+
     }
 }

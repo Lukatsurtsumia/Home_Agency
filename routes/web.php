@@ -12,7 +12,7 @@ Route::get('/', [MainController::class, 'index'])->name('welcome') ;
      Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
 
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio.index') ;
-Route::get('/portfolio/{id}', [PortfolioController::class, 'index'])->name('images') ;
+Route::get('/portfolio/{id}', [PortfolioController::class, 'show'])->name('images') ;
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send') ;
 
 Route::post('/generate-pdf', [PdfController::class, 'generate'])->name('generate.pdf');

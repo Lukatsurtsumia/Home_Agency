@@ -102,6 +102,17 @@
 
                     <form action="{{ route('contact.send') }}" method="POST" class="space-y-4">
                         @csrf
+                        {{-- -Success Message --}}
+                        @if (session('success'))
+    <div class="rounded-2xl bg-emerald-500/10 border border-emerald-500/30 px-4 py-3 text-sm text-emerald-300">
+        {{ session('success') }}
+    </div>
+@endif
+@if (session('error'))
+    <div class="rounded-2xl bg-red-500/10 border border-red-500/30 px-4 py-3 text-sm text-red-300">
+        {{ session('error') }}
+    </div>
+@endif
                         {{-- later: @csrf and real action --}}
                         <div class="grid gap-3 sm:grid-cols-2">
                             <div>
@@ -112,6 +123,7 @@
                                     class="w-full rounded-2xl bg-slate-950 border border-slate-800 px-4 py-3 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
                                     placeholder="Your name"
                                 >
+                                @error('sender_name') <p class="mt-1 text-xs text-red-400">{{ $message }}</p> @enderror
                             </div>
                             <div>
                                 <label class="block text-[12px] text-slate-300 mb-1.5">ელ. ფოსტა</label>
@@ -121,6 +133,7 @@
                                     class="w-full rounded-2xl bg-slate-950 border border-slate-800 px-4 py-3 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
                                     placeholder="you@example.com / +995..."
                                 >
+                                @error('sender_email') <p class="mt-1 text-xs text-red-400">{{ $message }}</p> @enderror
                             </div>
                         </div>
 
@@ -132,6 +145,7 @@
                                 class="w-full rounded-2xl bg-slate-950 border border-slate-800 px-4 py-3 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
                                 placeholder="Example: 2–3 rooms in Saburtalo or Vake, budget around X, for living / for rental."
                             ></textarea>
+                            @error('sender_message') <p class="mt-1 text-xs text-red-400">{{ $message }}</p> @enderror
                         </div>
 
                         <div class="flex justify-end pt-1">
@@ -148,3 +162,10 @@
         </div>
     </div>
 </section>
+@if ($errors->has('sender_name') || $errors->has('sender_email') || $errors->has('sender_message') || session('success') || session('error'))
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    });
+</script>
+@endif
