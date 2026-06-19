@@ -1,58 +1,95 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Home Agency
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A modern renovation company platform built with Laravel for the Georgian market, designed to simplify the entire customer journey — from obtaining renovation cost estimates to exploring completed projects and communicating directly with the company.
 
-## About Laravel
+The platform provides an intuitive and fully localized Georgian-language experience, helping clients calculate approximate renovation costs, generate PDF summaries, browse completed projects, and submit inquiries through an integrated contact system.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+The platform provides an intuitive experience that helps potential clients understand renovation costs, compare service packages, review previous work, and receive professional assistance through an integrated communication system.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Features
 
-## Learning Laravel
+# Professional Landing Experience
+A clean and modern interface designed to create a strong first impression and clearly present the company's services and expertise.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+# Project Showcase Slideshow
+A dedicated slideshow section highlighting renovation projects, company achievements, and featured content.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<img width="1874" height="1026" alt="Capture d&#39;écran 2026-06-08 195010" src="https://github.com/user-attachments/assets/5786ff20-b9b0-4355-92ab-e5c9b9f1dae8" />
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+# Renovation Service Packages
 
-## Agentic Development
+Customers can explore multiple renovation options tailored to different budgets and requirements:
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+- Standard Package
+- Comfort Package
+- Premium Package
+- 
+<img width="1761" height="1015" alt="2" src="https://github.com/user-attachments/assets/28837f8f-1f53-4377-adcb-9fea0181797c" />
 
-```bash
-composer require laravel/boost --dev
+# Advanced Renovation Calculator
+An interactive renovation calculator that helps clients estimate project costs before contacting the company.
 
-php artisan boost:install
-```
+ <img width="1585" height="1022" alt="3" src="https://github.com/user-attachments/assets/05f88f2a-9bee-4be7-9560-72b4fa584af0" />
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+**Features include:**
 
-## Contributing
+- Dynamic renovation cost calculation
+- Material and service breakdown
+- Automatic total price calculation
+- GEL (₾) to USD ($) currency conversion
+- Detailed project summary
+- PDF report generation and download
+  
+# PDF Report Generation
+Users can generate and download a professional PDF summary containing all selected renovation details and calculated costs.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<img width="850" height="951" alt="Capture d&#39;écran 2026-06-08 200725" src="https://github.com/user-attachments/assets/416b1990-a81a-4e20-8584-46999b3627ce" />
 
-## Code of Conduct
+# Project Portfolio Management
+A portfolio system that showcases completed renovation projects with multiple images and project information.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<img width="1813" height="949" alt="5" src="https://github.com/user-attachments/assets/848f76d1-2fc2-456b-8730-a13c2e975652" />
 
-## Security Vulnerabilities
+# Interactive Project Map
+Integrated map functionality allowing visitors to view the locations of completed projects and explore the company's work geographically.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<img width="1517" height="928" alt="6" src="https://github.com/user-attachments/assets/0b9d5e9d-5ae0-438c-a9ba-5328bdbce843" />
 
-## License
+# About Company Section
+A dedicated section presenting company information, services, experience, and business values.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<img width="1832" height="746" alt="7" src="https://github.com/user-attachments/assets/40f3ac1a-668e-4440-8156-59b430f5af87" />
+
+# Contact & Communication System
+A fully functional contact solution that allows potential clients to communicate directly with the company.
+
+<img width="1778" height="990" alt="8" src="https://github.com/user-attachments/assets/fa578757-13ee-47ad-93a6-6aacba8d37c2" />
+
+**Features include:**
+- Contact form validation
+- Email notifications
+- Automatic confirmation emails
+- Direct client communication via email
+
+---
+
+## Technology Stack
+
+- Laravel
+- PHP
+- MySQL
+- Blade Templates
+- Tailwind CSS
+- JavaScript
+- SMTP Email Integration
+- PDF Generation
+
+---
+
+## Business Value
+
+Home Agency was developed to improve transparency within the renovation process by providing clients with immediate project cost estimates, detailed renovation summaries, access to previous work, and direct communication channels with the company.
+
+The platform combines marketing, project presentation, cost estimation, and customer communication into a single streamlined solution.
