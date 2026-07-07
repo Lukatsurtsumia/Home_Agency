@@ -506,11 +506,12 @@
 
     async function loadUsdRate() {
         try {
-            const res = await fetch('https://nbg.gov.ge/gw/api/ct/monetarypolicy/currencies/en/json');
+            // Same-origin endpoint: the server fetches NBG (cached) so the browser
+            // never calls nbg.gov.ge directly (no DNS/CORS failures).
+            const res = await fetch('{{ route('usd.rate') }}');
             const data = await res.json();
-            const usd = data[0].currencies.find(c => c.code === 'USD');
-            if (usd) {
-                usdRate = usd.rate;
+            if (data.rate) {
+                usdRate = data.rate;
                 calculateTotals();
             }
         } catch (e) {

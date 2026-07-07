@@ -204,7 +204,6 @@ servicesUsdBtn.addEventListener('click', () => {
 // Initial state
 currentCurrency = 'GEL';
 
-updateCurrencyButtons();
 updateServiceCurrencyButtons();
 updateServicePrices();
 </script>

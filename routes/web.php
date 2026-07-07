@@ -6,7 +6,10 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PdfController;
+use App\Http\Controllers\CurrencyController;
 Route::get('/', [MainController::class, 'index'])->name('welcome') ;
+
+Route::get('/usd-rate', [CurrencyController::class, 'usdRate'])->name('usd.rate');
 
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio.index') ;
 Route::get('/portfolio/{id}', [PortfolioController::class, 'show'])->name('images') ;
