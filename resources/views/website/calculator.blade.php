@@ -43,9 +43,19 @@
                                     <p class="text-[0.68rem] tracking-[0.24em] uppercase text-slate-500">
                                         ფართი
                                     </p>
-                                    <p id="sizeValue" class="text-base sm:text-lg font-semibold text-slate-900">
-                                        50 მ²
-                                    </p>
+                                    <div class="flex items-center gap-1">
+                                        <input
+                                            id="sizeValueInput"
+                                            type="number"
+                                            min="10"
+                                            max="200"
+                                            step="0.5"
+                                            value="50"
+                                            inputmode="decimal"
+                                            class="w-14 text-right text-base sm:text-lg font-semibold text-slate-900 bg-transparent border-b border-dashed border-slate-300 focus:border-slate-900 outline-none transition [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                                        />
+                                        <span class="text-base sm:text-lg font-semibold text-slate-900">მ²</span>
+                                    </div>
                                 </div>
                                 <div>
                                     <input
@@ -97,7 +107,7 @@
     <div>
         <p class="text-sm font-medium text-slate-800">ავეჯისა და სამზარეულოს მონტაჟი</p>
         <p id="furniturePrice" class="text-[0.72rem] text-slate-400 mt-1">
-            1,200 ₾
+            7,000 ₾
         </p>
     </div>
 
@@ -483,7 +493,7 @@
     const totalPrice = document.getElementById('totalPrice');
     const totalPerM2 = document.getElementById('totalPerM2');
     const sizeSlider = document.getElementById('sizeSlider');
-    const sizeValue = document.getElementById('sizeValue');
+    const sizeValueInput = document.getElementById('sizeValueInput');
     const packageButtons = document.querySelectorAll('.package-btn');
 
     function updateAutoSizes() {
@@ -750,7 +760,7 @@
             extrasHTML += `
                 <div class="flex items-center justify-between text-sm gap-4">
                     <span class="text-slate-400">ავეჯის მონტაჟი</span>
-                    <span class="text-white font-medium whitespace-nowrap">${money(1200)}</span>
+                    <span class="text-white font-medium whitespace-nowrap">${money(7000)}</span>
                 </div>
             `;
             summaryRows.push({
@@ -859,12 +869,32 @@ summaryRows.forEach(row => {
         calculateTotals();
     });
 
-    sizeSlider.addEventListener('input', (e) => {
-        apartmentSize = parseFloat(e.target.value);
-        sizeValue.innerText = apartmentSize.toFixed(1) + ' მ²';
+    function applySizeChange() {
         updateAutoSizes();
         updateAllMaterialDisplays();
         calculateTotals();
+    }
+
+    sizeSlider.addEventListener('input', (e) => {
+        apartmentSize = parseFloat(e.target.value);
+        sizeValueInput.value = apartmentSize.toFixed(1);
+        applySizeChange();
+    });
+
+    sizeValueInput.addEventListener('input', (e) => {
+        const value = parseFloat(e.target.value);
+        if (isNaN(value)) return;
+        apartmentSize = value;
+        sizeSlider.value = Math.min(200, Math.max(10, value));
+        applySizeChange();
+    });
+
+    sizeValueInput.addEventListener('change', (e) => {
+        const clamped = Math.min(200, Math.max(10, parseFloat(e.target.value) || apartmentSize));
+        apartmentSize = clamped;
+        e.target.value = clamped.toFixed(1);
+        sizeSlider.value = clamped;
+        applySizeChange();
     });
 
     packageButtons.forEach(btn => {

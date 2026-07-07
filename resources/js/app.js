@@ -33,15 +33,19 @@ document.addEventListener('DOMContentLoaded', () => {
 //Slide Show 
  
 document.addEventListener('DOMContentLoaded', () => {
-    // Smooth scroll (optional)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Smooth scroll for same-page section links (e.g. "/#services").
+    // Links to a section on another page (e.g. viewed from a portfolio detail
+    // page) are left alone so the browser navigates there normally.
+    document.querySelectorAll('a[href*="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            const id = this.getAttribute('href');
-            const target = document.querySelector(id);
+            const url = new URL(this.href, window.location.href);
+            if (url.pathname !== window.location.pathname || !url.hash) return;
+
+            const target = document.querySelector(url.hash);
             if (!target) return;
             e.preventDefault();
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
- });
+        });
     });
 
     // Hero slideshow using data from Laravel
@@ -112,6 +116,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cards.forEach(card => observer.observe(card));
 
+});
+
+//Portfolio Scroll Dots (mobile)
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('portfolio-track');
+    const dots = document.querySelectorAll('.portfolio-dot');
+    const cards = document.querySelectorAll('[data-portfolio-card]');
+
+    if (!track || dots.length === 0 || cards.length === 0) return;
+
+    const setActiveDot = (index) => {
+        dots.forEach(dot => {
+            const isActive = dot.dataset.index === String(index);
+            dot.classList.toggle('bg-sky-400', isActive);
+            dot.classList.toggle('w-4', isActive);
+            dot.classList.toggle('bg-slate-700', !isActive);
+        });
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                setActiveDot(entry.target.dataset.index);
+            }
+        });
+    }, { root: track, threshold: 0.6 });
+
+    cards.forEach(card => observer.observe(card));
 });
 
 //Map Component

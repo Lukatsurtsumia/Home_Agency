@@ -139,6 +139,10 @@
             color: #0f172a;
         }
 
+        .right {
+            text-align: right;
+        }
+
         .footer-total {
             margin-top: 14px;
             background: #0f172a;
@@ -194,7 +198,7 @@
             <thead>
                 <tr>
                     <th>დეტალები</th>
-                    <th >რაოდენობა</th>
+                    <th class="right">რაოდენობა</th>
                     <th class="right">ღირებულება</th>
                     <th class="right">საერთო ფასი</th>
                 </tr>
@@ -202,10 +206,10 @@
             <tbody>
                 @foreach(($data['rows'] ?? []) as $row)
                     <tr>
-                        <td >{{ $row['name'] ?? '' }}</td>
+                        <td>{{ $row['name'] ?? '' }}</td>
                         <td class="right">{{ $row['quantity'] . ' ' . ($row['unit'] ?? '')}}</td>
-                        <td class="right">{{ $row['price'] ?? $row['priceRaw'] ?? '' }}</td>
-                        <td class="right"><strong>{{ $row['total'] ?? $row['totalRaw'] ?? '' }}</strong></td>
+                        <td class="right">{{ $row['priceRaw'] ?? '' }}</td>
+                        <td class="right"><strong>{{ $row['totalRaw'] ?? '' }}</strong></td>
                     </tr>
                 @endforeach
             </tbody>

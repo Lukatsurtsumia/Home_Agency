@@ -14,13 +14,20 @@ class ContactController extends Controller
             'sender_email' => 'required|email|max:255',
             'sender_message' => 'required|string|max:5000',
         ]);
-Mail::send([], [], function ($message) use ($data) {
+
+        $safe = [
+            'sender_name' => e($data['sender_name']),
+            'sender_email' => e($data['sender_email']),
+            'sender_message' => nl2br(e($data['sender_message'])),
+        ];
+
+Mail::send([], [], function ($message) use ($data, $safe) {
 
     $message->to('GaGoAgency0@gmail.com')
         ->replyTo($data['sender_email'], $data['sender_name'])
         ->subject('New Contact Form Message')
         ->html("
-           
+
     <div style='max-width:700px;margin:auto;background:#ffffff;border-radius:20px;overflow:hidden;border:1px solid #e2e8f0;'>
 
         <div style='background:#0f172a;padding:30px;text-align:center;'>
@@ -41,7 +48,7 @@ Mail::send([], [], function ($message) use ($data) {
                 </p>
 
                 <p style='font-size:18px;font-weight:600;color:#0f172a;margin:0;'>
-                    {$data['sender_name']}
+                    {$safe['sender_name']}
                 </p>
             </div>
 
@@ -51,7 +58,7 @@ Mail::send([], [], function ($message) use ($data) {
                 </p>
 
                 <p style='font-size:16px;color:#0f172a;margin:0;'>
-                    {$data['sender_email']}
+                    {$safe['sender_email']}
                 </p>
             </div>
 
@@ -61,7 +68,7 @@ Mail::send([], [], function ($message) use ($data) {
                 </p>
 
                 <div style='background:#f8fafc;border:1px solid #e2e8f0;padding:20px;border-radius:14px;color:#334155;line-height:1.7;'>
-                    {$data['sender_message']}
+                    {$safe['sender_message']}
                 </div>
             </div>
 
@@ -103,7 +110,7 @@ GaGo Agency
 <td style='padding:40px;'>
 
 <h2 style='margin-top:0;color:#111827;'>
-Hello {$data['sender_name']},
+Hello {$safe['sender_name']},
 </h2>
 
 <p style='color:#4b5563;line-height:1.7;'>

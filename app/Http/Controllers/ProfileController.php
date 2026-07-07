@@ -11,15 +11,9 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
-    public function index(){
-        return view('auth.login');
-    }
     /**
      * Display the user's profile form.
      */
-    public function register(){
-        return view('auth.register');
-    }
     public function edit(Request $request): View
     {
         return view('profile.edit', [

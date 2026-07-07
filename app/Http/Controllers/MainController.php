@@ -13,7 +13,7 @@ class MainController extends Controller
         
     $slides = [
         [
-            'image' => 'https://images.unsplash.com/photo-1505691723518-36a5ac3be353?w=1800&h=1200&fit=crop',
+            'image' => 'https://images.pexels.com/photos/5179534/pexels-photo-5179534.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1800&h=1200',
             'label' => 'უძრავი ქონების სააგენტო · საქართველო',
 'title' => ' სრულყოფილი სარემონტო მომსახურება საქართველოში.',
 'text'  => 'ჩვენი გუნდი კლიენტებს ეხმარება უძრავი ქონების შეძენასა და გაყიდვაში თბილისის, ბათუმისა და საქართველოს სხვა მოთხოვნად უბნებში. დამატებით, ვთავაზობთ სრული რემონტის მომსახურებას „გასაღების ჩაბარების“ პრინციპით — პროექტირების, დიზაინის, მასალების, სამშენებლო და მოსაპირკეთებელი სამუშაოების სრული კოორდინაციით.',
@@ -21,8 +21,8 @@ class MainController extends Controller
 'meta2' => 'გაყიდული ბინები · რემონტი გასაღების ჩაბარებით', 
 ],
         [
-            'image' => 'https://images.unsplash.com/photo-1502672023488-70e25813eb80?w=1800&h=1200&fit=crop',
-           
+            'image' => 'https://images.pexels.com/photos/19889118/pexels-photo-19889118.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1800&h=1200',
+
     'label' => 'ინტერიერი და რემონტი · თბილისი',
 
     'title' => 'უძრავი ქონება და სრულყოფილი რემონტი ერთი პროფესიონალური გუნდისგან.',
@@ -34,8 +34,8 @@ class MainController extends Controller
     'meta2' => 'დიზაინი · რემონტი · სრული უზრუნველყოფა',
     ],
         [
-            'image' => 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1800&h=1200&fit=crop',
-      
+            'image' => 'https://images.pexels.com/photos/33054912/pexels-photo-33054912.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1800&h=1200',
+
     'label' => 'თანამედროვე რემონტი · თბილისი',
 
     'title' => 'ბინები, რომლებიც სრულად მზად არის საცხოვრებლად ან საინვესტიციოდ.',

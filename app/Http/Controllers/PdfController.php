@@ -15,15 +15,15 @@ public function generate(Request $request)
 
    foreach ($data['rows'] ?? [] as &$row) {
 
-    $row['priceRaw'] = preg_replace('/₾/u', ' GEL', $row['priceRaw']);
-    $row['totalRaw'] = preg_replace('/₾/u', ' GEL', $row['totalRaw']);
+    $row['priceRaw'] = preg_replace('/₾/u', ' GEL', $row['priceRaw'] ?? '');
+    $row['totalRaw'] = preg_replace('/₾/u', ' GEL', $row['totalRaw'] ?? '');
 }
 
  
 
 $data['totalFormatted'] = str_replace(
-    ["₾", "$", "\u{202F}"],
-    [" GEL", " USD", " "],
+    ["₾", "\u{202F}"],
+    [" GEL", " "],
     $data['totalFormatted'] ?? ''
 );
         $pdf = Pdf::loadView('pdf.summary', [

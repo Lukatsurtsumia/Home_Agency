@@ -50,7 +50,7 @@
     ] as $id => $label)
 
         @php
-            $href = $id === 'home' ? '/' : '#'. $id;
+            $href = $id === 'home' ? '/' : route('welcome').'#'.$id;
             $isHome = $id === 'home';
         @endphp
 
@@ -67,7 +67,7 @@
 
             {{-- Desktop CTA --}}
             <div class="hidden lg:flex items-center gap-4">
-                <a href="#contact" class="inline-flex items-center rounded-full border border-slate-900/80 bg-slate-900 px-4 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#f5f3ef] hover:bg-transparent hover:text-slate-900 transition-colors duration-200 whitespace-nowrap">
+                <a href="{{ route('welcome') }}#contact" class="inline-flex items-center rounded-full border border-slate-900/80 bg-slate-900 px-4 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#f5f3ef] hover:bg-transparent hover:text-slate-900 transition-colors duration-200 whitespace-nowrap">
                     კონტაქტი
                 </a>
 
@@ -102,11 +102,11 @@
     <div id="mobile-menu" class="md:hidden hidden border-t border-slate-200/70 bg-[#f5f3ef]">
         <div class="mx-auto max-w-7xl px-4 py-4 space-y-1">
             <a href="/" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-800 hover:bg-slate-900 hover:text-[#f5f3ef] transition">მთავარი</a>
-            <a href="#services" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-700 hover:bg-slate-900 hover:text-[#f5f3ef] transition">სერვისები</a>
-            <a href="#calculator" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-800 hover:bg-slate-900 hover:text-[#f5f3ef] transition">კალკულატორი</a>
-            <a href="#portfolio" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-700 hover:bg-slate-900 hover:text-[#f5f3ef] transition">პორტფოლიო</a>
-            <a href="#contact" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-700 hover:bg-slate-900 hover:text-[#f5f3ef] transition">კონტაქტი</a>
-            <a href="#about" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-700 hover:bg-slate-900 hover:text-[#f5f3ef] transition">ჩვენ შესახებ</a>
+            <a href="{{ route('welcome') }}#services" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-700 hover:bg-slate-900 hover:text-[#f5f3ef] transition">სერვისები</a>
+            <a href="{{ route('welcome') }}#calculator" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-800 hover:bg-slate-900 hover:text-[#f5f3ef] transition">კალკულატორი</a>
+            <a href="{{ route('welcome') }}#portfolio" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-700 hover:bg-slate-900 hover:text-[#f5f3ef] transition">პორტფოლიო</a>
+            <a href="{{ route('welcome') }}#contact" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-700 hover:bg-slate-900 hover:text-[#f5f3ef] transition">კონტაქტი</a>
+            <a href="{{ route('welcome') }}#about" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-700 hover:bg-slate-900 hover:text-[#f5f3ef] transition">ჩვენ შესახებ</a>
 
             @auth
             
@@ -126,20 +126,3 @@
         </div>
     </div>
 </header>
-
-@push('scripts')
-<script>
-  <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const button = document.getElementById('mobile-menu-button');
-    const menu = document.getElementById('mobile-menu');
-
-    if (!button || !menu) return;
-
-    button.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-    });
-});
-</script>
-</script>
-@endpush

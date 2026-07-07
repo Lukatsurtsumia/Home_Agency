@@ -72,10 +72,9 @@
 >
     {{ is_numeric($service['priceM²']) ? $service['priceM²'].' ₾' : $service['priceM²'] }}
 </p>
-                            <button 
+                            <button
                             type="button"
-                            
-                            onclick="selectService({{ $loop->index }})"
+                            onclick="{{ is_numeric($service['priceM²']) ? 'selectService('.$loop->index.')' : "document.getElementById('contact').scrollIntoView({behavior:'smooth',block:'start'})" }}"
                             class="w-full {{ $service['button_class'] }} text-white py-3 rounded-xl font-semibold transition cursor-pointer">
                                 აირჩიე
                             </button>
