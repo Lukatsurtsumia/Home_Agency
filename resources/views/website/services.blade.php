@@ -2,14 +2,13 @@
     <div class="max-w-6xl mx-auto px-6">
         <div class="text-center max-w-3xl mx-auto mb-20">
             <p class="text-xs font-semibold tracking-[0.35em] uppercase text-slate-500">
-               ჩვენი სერვისები
+               {{ __('ჩვენი სერვისები') }}
             </p>
             <h2 class="mt-4 text-4xl font-semibold text-slate-900">
-                 სრულყოფილი გადაწყვეტილებები თქვენი უძრავი ქონებისთვის
+                 {{ __('სრულყოფილი გადაწყვეტილებები თქვენი უძრავი ქონებისთვის') }}
             </h2>
             <p class="mt-6 text-slate-600 text-sm leading-relaxed">
-                ბინის შეძენიდან და დიზაინის დაგეგმვიდან სრულ რემონტამდე — 
-        ყველა ეტაპი ერთი პროფესიონალური გუნდის კოორდინაციით.
+                {{ __('ბინის შეძენიდან და დიზაინის დაგეგმვიდან სრულ რემონტამდე — ყველა ეტაპი ერთი პროფესიონალური გუნდის კოორდინაციით.') }}
             </p>
         </div>
           <!-- CURRENCY SWITCH -->
@@ -43,22 +42,22 @@
 
                     <div class="relative h-full flex flex-col p-8 text-white">
                         <span class="self-start mb-6 px-4 py-1 rounded-full {{ $service['badge_class'] }} text-xs font-semibold tracking-wider">
-                            {{ $service['badge'] }}
+                            {{ __($service['badge']) }}
                         </span>
 
                         <p class="text-sm text-white/80 mb-6">
-                            {{ $service['description'] }}
+                            {{ __($service['description']) }}
                         </p>
 
                         <ul class="space-y-2 text-sm flex-1">
                             @foreach($service['features'] as $feature)
                                 <li class="flex justify-between border-b border-white/20 py-2">
-                                    <span>{{ $feature['name'] }}</span>
+                                    <span>{{ __($feature['name']) }}</span>
                                  <span
     class="font-semibold service-feature-price"
     data-gel="{{ is_numeric($feature['price']) ? $feature['price'] : '' }}"
 >
-    {{ is_numeric($feature['price']) ? $feature['price'].' ₾' : $feature['price'] }}
+    {{ is_numeric($feature['price']) ? $feature['price'].' ₾' : __($feature['price']) }}
 </span>
                                 </li>
                             @endforeach
@@ -68,15 +67,15 @@
                         <p
     class="text-2xl font-semibold mb-4 service-price"
     data-gel="{{ is_numeric($service['priceM²']) ? $service['priceM²'] : '' }}"
-    data-text="{{ !is_numeric($service['priceM²']) ? $service['priceM²'] : '' }}"
+    data-text="{{ !is_numeric($service['priceM²']) ? __($service['priceM²']) : '' }}"
 >
-    {{ is_numeric($service['priceM²']) ? $service['priceM²'].' ₾' : $service['priceM²'] }}
+    {{ is_numeric($service['priceM²']) ? $service['priceM²'].' ₾' : __($service['priceM²']) }}
 </p>
                             <button
                             type="button"
                             onclick="{{ is_numeric($service['priceM²']) ? 'selectService('.$loop->index.')' : "document.getElementById('contact').scrollIntoView({behavior:'smooth',block:'start'})" }}"
                             class="w-full {{ $service['button_class'] }} text-white py-3 rounded-xl font-semibold transition cursor-pointer">
-                                აირჩიე
+                                {{ __('აირჩიე') }}
                             </button>
                         </div>
                     </div>

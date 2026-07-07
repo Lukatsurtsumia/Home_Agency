@@ -18,35 +18,35 @@
                 <div class="max-w-xl sm:max-w-2xl text-white">
                     <p id="hero-label"
                        class="text-[0.7rem] font-medium uppercase tracking-[0.32em] text-slate-200/80">
-                        {{ $first['label'] }}
+                        {{ __($first['label']) }}
                     </p>
                     <div class="mt-4 h-px w-16 bg-white/70"></div>
                     <h1 id="hero-title"
                         class="mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-[3.1rem] font-semibold tracking-tight leading-tight">
-                        {{ $first['title'] }}
+                        {{ __($first['title']) }}
                     </h1>
                     <p id="hero-text"
                        class="mt-5 text-sm sm:text-base md:text-lg text-slate-100/90 max-w-lg leading-relaxed">
-                        {{ $first['text'] }}
+                        {{ __($first['text']) }}
                     </p>
 
 
                     <div class="mt-8 flex flex-wrap items-center gap-3">
                         <a href="#contact"
                            class="inline-flex items-center rounded-full bg-white px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-slate-900 hover:bg-slate-900 hover:text-[#f5f3ef] transition">
-                            ვიზიტის დაგეგმვა
+                            {{ __('ვიზიტის დაგეგმვა') }}
                         </a>
                         <a href="#services"
                            class="inline-flex items-center rounded-full border border-white/70 bg-white/5 px-6 py-2.5 text-xs font-medium uppercase tracking-[0.2em] text-slate-50 hover:bg-white/10 transition">
-                            მომსახურებების ნახვა
+                            {{ __('მომსახურებების ნახვა') }}
                         </a>
                     </div>
 
 
                     <div class="mt-8 flex flex-wrap items-center gap-6 text-[0.7rem] uppercase tracking-[0.22em] text-slate-200/80">
-                        <span id="hero-meta-1">{{ $first['meta1'] }}</span>
+                        <span id="hero-meta-1">{{ __($first['meta1']) }}</span>
                         <span class="hidden sm:inline h-px w-8 bg-slate-200/50"></span>
-                        <span id="hero-meta-2">{{ $first['meta2'] }}</span>
+                        <span id="hero-meta-2">{{ __($first['meta2']) }}</span>
                     </div>
                 </div>
             </div>
@@ -54,9 +54,15 @@
     </div>
 
 
-    {{-- Let Laravel output slides as JSON for JS --}}
+    {{-- Let Laravel output slides as JSON for JS (translated to the current locale) --}}
     <script type="application/json" id="hero-slides-data">
-        {!! json_encode($slides) !!}
+        {!! json_encode(collect($slides)->map(fn ($s) => array_merge($s, [
+            'label' => __($s['label']),
+            'title' => __($s['title']),
+            'text'  => __($s['text']),
+            'meta1' => __($s['meta1']),
+            'meta2' => __($s['meta2']),
+        ]))->values()) !!}
     </script>
 </section>
 @endif
