@@ -25,3 +25,6 @@ _ide_helper.php
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+# Windows download metadata (breaks clones on Windows)
+*Zone.Identifier
