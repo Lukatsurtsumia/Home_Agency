@@ -8,6 +8,16 @@ use Illuminate\Support\Facades\Http;
 class CurrencyController extends Controller
 {
     /**
+     * Typical commercial-bank spread over the official NBG rate (~1.1%).
+     * NBG only publishes the official reference rate; banks convert at a
+     * slightly worse rate. Adding this spread makes the calculator match the
+     * real "converting" rate a customer gets at a Georgian bank. It still
+     * tracks the live official rate — this is just the margin on top.
+     * Adjust this single number if the spread drifts.
+     */
+    private const COMMERCIAL_MARGIN = 0.011;
+
+    /**
      * USD → GEL rate (GEL per 1 USD).
      *
      * Fetched from the National Bank of Georgia on the server and cached for
@@ -31,7 +41,11 @@ class CurrencyController extends Controller
             }
         }
 
-        return response()->json(['rate' => (float) $rate]);
+        // Official reference rate + typical bank spread ≈ the commercial rate
+        // a customer actually converts at.
+        $rate = round((float) $rate * (1 + self::COMMERCIAL_MARGIN), 4);
+
+        return response()->json(['rate' => $rate]);
     }
 
     private function fetchNbgUsdRate(): ?float
