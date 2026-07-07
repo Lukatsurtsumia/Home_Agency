@@ -11,6 +11,13 @@ Route::get('/', [MainController::class, 'index'])->name('welcome') ;
 
 Route::get('/usd-rate', [CurrencyController::class, 'usdRate'])->name('usd.rate');
 
+Route::get('/lang/{locale}', function (string $locale) {
+    if (in_array($locale, \App\Http\Middleware\SetLocale::SUPPORTED, true)) {
+        session(['locale' => $locale]);
+    }
+    return redirect()->back();
+})->name('lang.switch');
+
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio.index') ;
 Route::get('/portfolio/{id}', [PortfolioController::class, 'show'])->name('images') ;
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send') ;

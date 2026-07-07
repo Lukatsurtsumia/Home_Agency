@@ -59,7 +59,7 @@
            onclick="window.location.href='/'"
            @endif
            class="group relative text-[0.68rem] lg:text-[0.72rem] font-medium uppercase tracking-[0.2em] text-slate-600 hover:text-slate-900 transition">
-            <span>{{ $label }}</span>
+            <span>{{ __($label) }}</span>
             <span class="pointer-events-none absolute left-0 -bottom-1 h-px w-0 bg-slate-900 transition-all duration-300 group-hover:w-full"></span>
         </a>
     @endforeach
@@ -68,7 +68,7 @@
             {{-- Desktop CTA --}}
             <div class="hidden lg:flex items-center gap-4">
                 <a href="{{ route('welcome') }}#contact" class="inline-flex items-center rounded-full border border-slate-900/80 bg-slate-900 px-4 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#f5f3ef] hover:bg-transparent hover:text-slate-900 transition-colors duration-200 whitespace-nowrap">
-                    კონტაქტი
+                    {{ __('კონტაქტი') }}
                 </a>
 
                  @auth
@@ -88,6 +88,14 @@
 
             </div>
            
+            {{-- Language switch (GEO / ENG) --}}
+            <div class="flex items-center gap-1 text-[0.6rem] font-semibold uppercase tracking-[0.12em]">
+                <a href="{{ route('lang.switch', 'ka') }}"
+                   class="px-2 py-1 rounded-full transition {{ app()->getLocale() === 'ka' ? 'bg-slate-900 text-[#f5f3ef]' : 'text-slate-500 hover:text-slate-900' }}">GEO</a>
+                <a href="{{ route('lang.switch', 'en') }}"
+                   class="px-2 py-1 rounded-full transition {{ app()->getLocale() === 'en' ? 'bg-slate-900 text-[#f5f3ef]' : 'text-slate-500 hover:text-slate-900' }}">ENG</a>
+            </div>
+
             {{-- Mobile Menu Button --}}
             <button id="mobile-menu-button" type="button" class="md:hidden inline-flex items-center justify-center rounded-full border border-slate-400/60 bg-[#f5f3ef] p-2 text-slate-800 hover:bg-slate-900 hover:text-[#f5f3ef] transition">
                 <span class="sr-only">მენიუს გახსნა</span>
@@ -101,12 +109,12 @@
     {{-- Mobile Menu --}}
     <div id="mobile-menu" class="md:hidden hidden border-t border-slate-200/70 bg-[#f5f3ef]">
         <div class="mx-auto max-w-7xl px-4 py-4 space-y-1">
-            <a href="/" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-800 hover:bg-slate-900 hover:text-[#f5f3ef] transition">მთავარი</a>
-            <a href="{{ route('welcome') }}#services" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-700 hover:bg-slate-900 hover:text-[#f5f3ef] transition">სერვისები</a>
-            <a href="{{ route('welcome') }}#calculator" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-800 hover:bg-slate-900 hover:text-[#f5f3ef] transition">კალკულატორი</a>
-            <a href="{{ route('welcome') }}#portfolio" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-700 hover:bg-slate-900 hover:text-[#f5f3ef] transition">პორტფოლიო</a>
-            <a href="{{ route('welcome') }}#contact" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-700 hover:bg-slate-900 hover:text-[#f5f3ef] transition">კონტაქტი</a>
-            <a href="{{ route('welcome') }}#about" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-700 hover:bg-slate-900 hover:text-[#f5f3ef] transition">ჩვენ შესახებ</a>
+            <a href="/" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-800 hover:bg-slate-900 hover:text-[#f5f3ef] transition">{{ __('მთავარი') }}</a>
+            <a href="{{ route('welcome') }}#services" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-700 hover:bg-slate-900 hover:text-[#f5f3ef] transition">{{ __('სერვისები') }}</a>
+            <a href="{{ route('welcome') }}#calculator" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-800 hover:bg-slate-900 hover:text-[#f5f3ef] transition">{{ __('კალკულატორი') }}</a>
+            <a href="{{ route('welcome') }}#portfolio" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-700 hover:bg-slate-900 hover:text-[#f5f3ef] transition">{{ __('პორტფოლიო') }}</a>
+            <a href="{{ route('welcome') }}#contact" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-700 hover:bg-slate-900 hover:text-[#f5f3ef] transition">{{ __('კონტაქტი') }}</a>
+            <a href="{{ route('welcome') }}#about" class="block rounded-lg px-3 py-2.5 text-xs font-medium uppercase tracking-[0.18em] text-slate-700 hover:bg-slate-900 hover:text-[#f5f3ef] transition">{{ __('ჩვენ შესახებ') }}</a>
 
             @auth
             
