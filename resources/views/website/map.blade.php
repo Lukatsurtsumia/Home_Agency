@@ -2,13 +2,13 @@
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div class="mb-10 sm:mb-12 text-center">
             <p class="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-slate-500">
-              განხორციელებული პროექტები
+              {{ __('განხორციელებული პროექტები') }}
             </p>
             <h2 class="mt-3 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
-              ლოკაციები, სადაც ჩვენი დახმარებით უძრავი ქონება წარმატებით გაიყიდა
+              {{ __('ლოკაციები, სადაც ჩვენი დახმარებით უძრავი ქონება წარმატებით გაიყიდა') }}
             </h2>
             <p class="mt-4 text-sm sm:text-base text-slate-600 max-w-2xl mx-auto">
-              თბილისში  განხორციელებული პროექტები. აირჩიეთ მისამართი, რათა რუკაზე იხილოთ მისი სავარაუდო მდებარეობა.
+              {{ __('თბილისში განხორციელებული პროექტები. აირჩიეთ მისამართი, რათა რუკაზე იხილოთ მისი სავარაუდო მდებარეობა.') }}
             </p>
         </div>
 
@@ -21,7 +21,7 @@
             {{-- List --}}
             <div class="space-y-4">
                 <p class="text-[0.75rem] font-medium uppercase tracking-[0.26em] text-slate-500">
-                    გაყიდული ობიექტების სია
+                    {{ __('გაყიდული ობიექტების სია') }}
                 </p>
                 <ul class="space-y-3 text-sm sm:text-base text-slate-800">
                     @foreach($soldApartments as $apartment)

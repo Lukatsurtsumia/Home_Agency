@@ -5,17 +5,17 @@
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-14">
             <div>
                 <h2 class="text-2xl sm:text-3xl font-semibold text-white mb-3">
-                    წარმატებით განხორციელებული პროექტები
+                    {{ __('წარმატებით განხორციელებული პროექტები') }}
                 </h2>
                 <p class="text-slate-400 text-sm max-w-xl">
-                    უძრავი ქონების პროექტები, რომლებიც ჩვენი გუნდის მხარდაჭერით შეირჩა, შეძენილ იქნა და სრულად გარემონტდა საცხოვრებელი ან საინვესტიციო მიზნებისთვის.
+                    {{ __('უძრავი ქონების პროექტები, რომლებიც ჩვენი გუნდის მხარდაჭერით შეირჩა, შეძენილ იქნა და სრულად გარემონტდა საცხოვრებელი ან საინვესტიციო მიზნებისთვის.') }}
                 </p>
             </div>
 
             @if($portfolios->count())
                 <div class="inline-flex items-center gap-2 self-start rounded-full border border-slate-800 bg-slate-950/60 px-4 py-2 text-xs font-medium text-slate-300">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                    {{ $portfolios->count() }} დასრულებული პროექტი
+                    {{ $portfolios->count() }} {{ __('დასრულებული პროექტი') }}
                 </div>
             @endif
         </div>
@@ -42,18 +42,18 @@
 
                             <span class="absolute top-4 left-4 inline-flex items-center gap-1.5 text-[11px] font-medium px-3 py-1 rounded-full bg-emerald-400/95 text-emerald-950 backdrop-blur">
                                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-950"></span>
-                                გაყიდული და გარემონტებული
+                                {{ __('გაყიდული და გარემონტებული') }}
                             </span>
                         </div>
 
                         <!-- CONTENT -->
                         <div class="flex flex-col flex-1 p-5 sm:p-6">
                             <h3 class="text-lg font-semibold text-white leading-snug line-clamp-1">
-                                {{ $portfolio->address ?? 'მისამართი მალე დაემატება' }}
+                                {{ $portfolio->address ?? __('მისამართი მალე დაემატება') }}
                             </h3>
 
                             <p class="text-sm text-slate-400 mt-2 line-clamp-2 min-h-[2.6rem]">
-                                დასრულებული სარემონტო პროექტი, მორგებული საცხოვრებელი ან საინვესტიციო საჭიროებისთვის.
+                                {{ __('დასრულებული სარემონტო პროექტი, მორგებული საცხოვრებელი ან საინვესტიციო საჭიროებისთვის.') }}
                             </p>
 
                             <div class="flex items-center gap-5 text-xs text-slate-300 mt-4">
@@ -68,13 +68,13 @@
                                     <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M2.25 12l8.954-8.955a1.125 1.125 0 011.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75" />
                                     </svg>
-                                    {{ $portfolio->rooms ?? '—' }} ოთახი
+                                    {{ $portfolio->rooms ?? '—' }} {{ __('ოთახი') }}
                                 </span>
                             </div>
 
                             <div class="mt-auto pt-4 border-t border-slate-800 flex items-center justify-between gap-3">
                                 <span class="text-xs font-medium text-sky-400 group-hover:text-sky-300 inline-flex items-center gap-1 transition">
-                                    პროექტის ნახვა
+                                    {{ __('პროექტის ნახვა') }}
                                     <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                                     </svg>

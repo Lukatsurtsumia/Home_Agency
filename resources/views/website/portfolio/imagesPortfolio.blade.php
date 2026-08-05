@@ -8,7 +8,7 @@
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
             </svg>
-            პორტფოლიოში დაბრუნება
+            {{ __('პორტფოლიოში დაბრუნება') }}
         </a>
 
         <div
@@ -100,7 +100,7 @@
                         <!-- ADDRESS / TITLE -->
                         <div class="shrink-0">
                             <p class="text-[0.68rem] font-medium uppercase tracking-[0.25em] text-slate-500 mb-2">
-                                მისამართი
+                                {{ __('მისამართი') }}
                             </p>
                             <h1 class="text-xl sm:text-2xl xl:text-3xl font-semibold text-white leading-tight">
                                 {{ $portfolio->address ?? $portfolio->title }}
@@ -111,7 +111,7 @@
                         <div class="shrink-0 rounded-2xl bg-white/5 ring-1 ring-white/10 overflow-hidden">
                             <div class="grid grid-cols-2 divide-x divide-white/10">
                                 <div class="px-4 py-3.5">
-                                    <p class="text-[0.6rem] font-medium uppercase tracking-[0.2em] text-slate-500 mb-1.5">ფართობი</p>
+                                    <p class="text-[0.6rem] font-medium uppercase tracking-[0.2em] text-slate-500 mb-1.5">{{ __('ფართობი') }}</p>
                                     <p class="flex items-center gap-1.5 text-white font-semibold text-sm">
                                         <svg class="w-4 h-4 text-slate-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9m11.25-5.25h-4.5m4.5 0v4.5m0-4.5L15 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15m11.25 5.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
@@ -120,7 +120,7 @@
                                     </p>
                                 </div>
                                 <div class="px-4 py-3.5">
-                                    <p class="text-[0.6rem] font-medium uppercase tracking-[0.2em] text-slate-500 mb-1.5">ოთახები</p>
+                                    <p class="text-[0.6rem] font-medium uppercase tracking-[0.2em] text-slate-500 mb-1.5">{{ __('ოთახები') }}</p>
                                     <p class="flex items-center gap-1.5 text-white font-semibold text-sm">
                                         <svg class="w-4 h-4 text-slate-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M2.25 12l8.954-8.955a1.125 1.125 0 011.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75" />
@@ -130,7 +130,7 @@
                                 </div>
                             </div>
                             <div class="flex items-center justify-between px-4 py-3.5 border-t border-white/10">
-                                <p class="text-[0.6rem] font-medium uppercase tracking-[0.2em] text-slate-500">ფასი</p>
+                                <p class="text-[0.6rem] font-medium uppercase tracking-[0.2em] text-slate-500">{{ __('ფასი') }}</p>
                                 <p class="text-2xl font-bold text-yellow-100">${{ number_format($portfolio->price, 0, '', ' ') }}</p>
                             </div>
                         </div>
@@ -143,7 +143,7 @@
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.25 10.5h7.5m-7.5 3H12M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        ანალოგიური პროექტის მოთხოვნა
+                        {{ __('ანალოგიური პროექტის მოთხოვნა') }}
                     </a>
                 </aside>
             </div>

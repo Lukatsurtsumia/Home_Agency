@@ -3,15 +3,15 @@
 
         <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 lg:mb-20">
           <p class="text-[0.68rem] tracking-[0.30em] text-slate-500 uppercase mb-4">
-    რემონტის კალკულატორი
+    {{ __('რემონტის კალკულატორი') }}
 </p>
 
 <h2 class="text-2xl sm:text-3xl lg:text-5xl font-semibold text-slate-900 leading-tight">
-    დაგეგმეთ თქვენი რემონტი ზუსტი და გამჭვირვალე ბიუჯეტით
+    {{ __('დაგეგმეთ თქვენი რემონტი ზუსტი და გამჭვირვალე ბიუჯეტით') }}
 </h2>
 
 <p class="mt-4 sm:mt-5 text-sm sm:text-base text-slate-500 leading-relaxed">
-    თანამედროვე კალკულატორი, რომელიც დაგეხმარებათ წინასწარ განსაზღვროთ პროექტის სავარაუდო ღირებულება, მასალების მოცულობა და დამატებითი მომსახურებები.
+    {{ __('თანამედროვე კალკულატორი, რომელიც დაგეხმარებათ წინასწარ განსაზღვროთ პროექტის სავარაუდო ღირებულება, მასალების მოცულობა და დამატებითი მომსახურებები.') }}
 </p>
         </div>
 
@@ -24,15 +24,15 @@
 
                             <div>
                                 <p class="text-[0.68rem] tracking-[0.24em] uppercase text-slate-500 mb-4">
-                                   პაკეტები
+                                   {{ __('პაკეტები') }}
                                 </p>
                                 <div class="grid grid-cols-2 gap-2">
                                     <button class="package-btn active-package w-full min-h-16 px-3 py-3 rounded-2xl transition-all duration-300" data-service="0">
-                                        <span class="block text-sm sm:text-[0.82rem] font-semibold">საბაზო</span>
+                                        <span class="block text-sm sm:text-[0.82rem] font-semibold">{{ __('საბაზო') }}</span>
                                         <span id="basicPackagePrice" class="block text-[0.72rem] sm:text-[0.68rem] opacity-70 mt-1">540 ₾ / მ²</span>
                                     </button>
                                     <button class="package-btn inactive-package w-full min-h-16 px-3 py-3 rounded-2xl transition-all duration-300" data-service="1">
-                                        <span class="block text-sm sm:text-[0.82rem] font-semibold">კომფორტი</span>
+                                        <span class="block text-sm sm:text-[0.82rem] font-semibold">{{ __('კომფორტი') }}</span>
                                         <span id="comfortPackagePrice" class="block text-[0.72rem] sm:text-[0.68rem] opacity-70 mt-1">850 ₾ / მ²</span>
                                     </button>
                                 </div>
@@ -41,7 +41,7 @@
                             <div>
                                 <div class="flex items-center justify-between mb-3">
                                     <p class="text-[0.68rem] tracking-[0.24em] uppercase text-slate-500">
-                                        ფართი
+                                        {{ __('ფართი') }}
                                     </p>
                                     <div class="flex items-center gap-1">
                                         <input
@@ -77,7 +77,7 @@
                             <div>
                                 <div class="flex items-center justify-between mb-3">
                                     <p class="text-[0.68rem] tracking-[0.24em] uppercase text-slate-500">
-                                        კარები
+                                        {{ __('კარები') }}
                                     </p>
                                     <p id="roomsValue" class="text-base sm:text-lg font-semibold text-slate-900">
                                         2
@@ -100,12 +100,12 @@
 
                             <div class="space-y-3">
                                 <p class="text-[0.68rem] tracking-[0.24em] uppercase text-slate-500">
-                                    დამატებითი სერვისები
+                                    {{ __('დამატებითი სერვისები') }}
                                 </p>
 
                               <label class="extra-box flex items-center justify-between">
     <div>
-        <p class="text-sm font-medium text-slate-800">ავეჯისა და სამზარეულოს მონტაჟი</p>
+        <p class="text-sm font-medium text-slate-800">{{ __('ავეჯისა და სამზარეულოს მონტაჟი') }}</p>
         <p id="furniturePrice" class="text-[0.72rem] text-slate-400 mt-1">
             7,000 ₾
         </p>
@@ -119,7 +119,7 @@
 
                                 <label class="extra-box flex items-center justify-between">
     <div>
-        <p class="text-sm font-medium text-slate-800">დამატებითი განათების სისტემა</p>
+        <p class="text-sm font-medium text-slate-800">{{ __('დამატებითი განათების სისტემა') }}</p>
         <p id="lightingPrice" class="text-[0.72rem] text-slate-400 mt-1">
             800 ₾
         </p>
@@ -135,7 +135,7 @@
 
                             <div class="bg-slate-950 rounded-3xl px-5 sm:px-7 py-6 sm:py-8">
                                 <p class="text-[0.65rem] uppercase tracking-[0.20em] text-slate-400 mb-3">
-                                  სავარაუდო ღირებულება
+                                  {{ __('სავარაუდო ღირებულება') }}
                                 </p>
                                 <div class="flex items-end gap-2 flex-wrap">
                                     <h2 id="totalPrice" class="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-white">0</h2>
@@ -144,11 +144,11 @@
 
                                 <div class="mt-6 pt-6 border-t border-slate-800 space-y-3">
                                     <div class="flex items-center justify-between text-sm gap-4">
-                                        <span class="text-slate-400">სამუშაოს ღირებულება</span>
+                                        <span class="text-slate-400">{{ __('სამუშაოს ღირებულება') }}</span>
                                         <span id="workCost" class="text-white font-medium whitespace-nowrap">0 ₾</span>
                                     </div>
                                     <div class="flex items-center justify-between text-sm gap-4">
-                                        <span class="text-slate-400">კარები</span>
+                                        <span class="text-slate-400">{{ __('კარები') }}</span>
                                         <span id="doorsCost" class="text-white font-medium whitespace-nowrap">0 ₾</span>
                                     </div>
                                     <div id="calculatedMaterialsSection" class="space-y-3"></div>
@@ -188,13 +188,13 @@
                         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                             <div>
                                 <p class="text-[0.68rem] tracking-[0.24em] uppercase text-slate-400 mb-2">
-                                    მასალები
+                                    {{ __('მასალები') }}
                                 </p>
-                                <h2 class="text-lg sm:text-xl font-semibold text-slate-900">მასალების რაოდენობის კორექტირება</h2>
+                                <h2 class="text-lg sm:text-xl font-semibold text-slate-900">{{ __('მასალების რაოდენობის კორექტირება') }}</h2>
                             </div>
                             <div class="hidden sm:flex items-center gap-2 px-3 py-2 rounded-2xl bg-slate-100">
                                 <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-                                <span class="text-xs font-medium text-slate-600">ცოცხალი კალკულაცია</span>
+                                <span class="text-xs font-medium text-slate-600">{{ __('ცოცხალი კალკულაცია') }}</span>
                             </div>
                         </div>
                     </div>
@@ -204,7 +204,7 @@
                     <div class="px-5 sm:px-7 py-5 bg-slate-50 border-t border-slate-100">
                         <div class="flex flex-col items-center text-center gap-2">
                             <p class="text-sm font-medium text-slate-700">
-                                საერთო მასალების ღირებულება
+                                {{ __('საერთო მასალების ღირებულება') }}
                             </p>
                             <div class="flex items-start justify-center gap-1 leading-none">
                                 <p id="materialsTotal" class="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">
@@ -219,7 +219,7 @@
                     <a
                         href="#contact"
                         class="inline-flex w-full sm:w-auto justify-center px-8 sm:px-10 py-3 rounded-xl bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 transition">
-                        მოდი დავიწყოთ მოლაპარაკება
+                        {{ __('მოდი დავიწყოთ მოლაპარაკება') }}
                     </a>
                 </div>
             </div>
@@ -230,10 +230,10 @@
                 <div class="px-5 sm:px-7 py-5 sm:py-6 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div>
                         <p class="text-[0.68rem] tracking-[0.24em] uppercase text-slate-400 mb-2">
-                           შეჯამება
+                           {{ __('შეჯამება') }}
                         </p>
                         <h2 class="text-lg sm:text-xl font-semibold text-slate-900">
-                            სარემონტო პროექტის დეტალები
+                            {{ __('სარემონტო პროექტის დეტალები') }}
                         </h2>
                     </div>
                     <button
@@ -251,19 +251,19 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
                         <div class="bg-slate-50 rounded-2xl p-5">
                             <p class="text-xs text-slate-500 uppercase tracking-wider mb-3">
-                               პროექტის დეტალები
+                               {{ __('პროექტის დეტალები') }}
                             </p>
                             <div class="space-y-3">
                                 <div class="flex justify-between gap-4">
-                                    <span class="text-sm text-slate-600">სერვისი</span>
+                                    <span class="text-sm text-slate-600">{{ __('სერვისი') }}</span>
                                     <span id="summaryPackage" class="text-sm font-semibold text-slate-900"></span>
                                 </div>
                                 <div class="flex justify-between gap-4">
-                                    <span class="text-sm text-slate-600">ზომა</span>
+                                    <span class="text-sm text-slate-600">{{ __('ზომა') }}</span>
                                     <span id="summarySize" class="text-sm font-semibold text-slate-900">50 მ²</span>
                                 </div>
                                 <div class="flex justify-between gap-4">
-                                    <span class="text-sm text-slate-600">კარები</span>
+                                    <span class="text-sm text-slate-600">{{ __('კარები') }}</span>
                                     <span id="summaryRooms" class="text-sm font-semibold text-slate-900">2</span>
                                 </div>
                             </div>
@@ -271,7 +271,7 @@
 
                         <div class="bg-emerald-50 rounded-2xl p-5">
                             <p class="text-xs text-emerald-700 uppercase tracking-wider mb-3">
-                                საერთო ფასი
+                                {{ __('საერთო ფასი') }}
                             </p>
                             <div class="flex items-end gap-2 flex-wrap">
                                 <h3 id="summaryTotal" class="text-3xl font-bold text-emerald-900">
@@ -286,7 +286,7 @@
 
                     <div class="space-y-4">
                         <h3 class="text-sm font-semibold text-slate-900 uppercase tracking-wider">
-                            ღირებულების დაყოფა
+                            {{ __('ღირებულების დაყოფა') }}
                         </h3>
 
                         <div class="border border-slate-200 rounded-2xl overflow-hidden">
@@ -294,16 +294,16 @@
                                 <thead class="bg-slate-50">
                                     <tr>
                                         <th class="w-[52%] sm:w-[48%] px-3 sm:px-4 py-2.5 text-left text-[10px] sm:text-xs font-semibold text-slate-700 uppercase tracking-wider">
-                                            დეტალები
+                                            {{ __('დეტალები') }}
                                         </th>
                                         <th class="hidden xl:table-cell w-[14%] px-3 sm:px-4 py-2.5 text-right text-[10px] sm:text-xs font-semibold text-slate-700 uppercase tracking-wider">
-                                            რაოდენობა
+                                            {{ __('რაოდენობა') }}
                                         </th>
                                         <th class="w-[22%] sm:w-[20%] px-3 sm:px-4 py-2.5 text-right text-[10px] sm:text-xs font-semibold text-slate-700 uppercase tracking-wider">
-                                            ღირებულება 
+                                            {{ __('ღირებულება') }}
                                         </th>
                                         <th class="w-[26%] sm:w-[20%] px-3 sm:px-4 py-2.5 text-right text-[10px] sm:text-xs font-semibold text-slate-700 uppercase tracking-wider">
-                                            ფასი
+                                            {{ __('ფასი') }}
                                         </th>
                                     </tr>
                                 </thead>
@@ -313,7 +313,7 @@
 
                         <div class="flex items-center justify-between gap-4 bg-slate-900 rounded-2xl px-5 py-4">
                             <span class="text-sm font-bold uppercase text-white">
-                               საერთო ფასი
+                               {{ __('საერთო ფასი') }}
                             </span>
                             <span id="summaryGrandTotal" class="text-lg font-bold text-white whitespace-nowrap">
                                 0 ₾
@@ -403,8 +403,24 @@
     }
 </style>
 
+@php
+    $calcNameMap = [];
+    foreach ([
+        'ლამინატი 10 მმ','პლინტუსი 7 მმ','შპალერი','კაფელ-მეტლახი','კარი','რადიატორი',
+        'განათებები','უნიტაზი','აბაზანის აქსესუარები','ჩამრთველები','შავი მასალა',
+        'საბაზო','კომფორტ','პრემიუმ','სამუშაოს ღირებულება','კარები',
+        'ავეჯისა და სამზარეულოს მონტაჟი','დამატებითი განათების სისტემა','ავეჯის მონტაჟი','რაოდენობა',
+    ] as $n) {
+        $calcNameMap[$n] = __($n);
+    }
+@endphp
 @push('scripts')
 <script>
+    // Display translations for material/service names. Logic keys stay Georgian;
+    // only the visible text is translated via t().
+    const NAME_T = @json($calcNameMap, JSON_UNESCAPED_UNICODE);
+    function t(s) { return (NAME_T && NAME_T[s]) ? NAME_T[s] : s; }
+
     const services = [
         {
             id: 0,
@@ -579,7 +595,7 @@
                     <div class="flex flex-col gap-5">
                         <div class="flex items-start justify-between gap-5">
                             <div class="min-w-0 flex-1">
-                                <h3 class="text-sm font-semibold text-slate-900">${materialName}</h3>
+                                <h3 class="text-sm font-semibold text-slate-900">${t(materialName)}</h3>
                               <p class="text-[0.72rem] text-slate-400 mt-1">
     ${money(price)} / ${materialName === 'პლინტუსი 7 მმ' ? 'გრძ/მ' : 'მ²'}
 </p>
@@ -684,7 +700,7 @@
                 <div class="flex items-center justify-between text-sm gap-4">
     
 <span class="text-slate-400">
-    ${materialName} ${currentSize.toFixed(1)} ${unit}
+    ${t(materialName)} ${currentSize.toFixed(1)} ${unit}
 </span>
                     <span class="text-white font-medium whitespace-nowrap">${money(total)}</span>
                 </div>
@@ -738,7 +754,7 @@
 
             otherMaterialsHTML += `
                 <div class="flex items-center justify-between text-sm gap-4">
-                    <span class="text-slate-400">${materialName}</span>
+                    <span class="text-slate-400">${t(materialName)}</span>
                     <span class="text-white font-medium whitespace-nowrap">${money(lineTotal)}</span>
                 </div>
             `;
@@ -760,7 +776,7 @@
             extras += 7000;
             extrasHTML += `
                 <div class="flex items-center justify-between text-sm gap-4">
-                    <span class="text-slate-400">ავეჯის მონტაჟი</span>
+                    <span class="text-slate-400">${t('ავეჯის მონტაჟი')}</span>
                     <span class="text-white font-medium whitespace-nowrap">${money(7000)}</span>
                 </div>
             `;
@@ -776,7 +792,7 @@
             extras += 800;
             extrasHTML += `
                 <div class="flex items-center justify-between text-sm gap-4">
-                    <span class="text-slate-400">დამატებითი განათების სისტემა</span>
+                    <span class="text-slate-400">${t('დამატებითი განათების სისტემა')}</span>
                     <span class="text-white font-medium whitespace-nowrap">${money(800)}</span>
                 </div>
             `;
@@ -793,14 +809,14 @@
         const finalTotal = workCalc + roomCost + materialsSum + otherMaterialsTotal + extras;
 
         window.pdfSummary = {
-            package: service.name,
+            package: t(service.name),
             size: apartmentSize,
             rooms: rooms,
             total: finalTotal,
             totalFormatted: currentCurrency === 'USD' ? '$' + (finalTotal / usdRate).toFixed(2) : Number(finalTotal).toLocaleString() + ' GEL',
             currency: currentCurrency,
             rows: summaryRows.map(row => ({
-                name: row.name,
+                name: t(row.name),
                 quantity: row.quantity,
                  unit: materialUnits[row.name] || '',
                 priceRaw: currentCurrency === 'USD' ? row.price : row.price.replaceAll('₾', ' GEL'),
@@ -810,7 +826,7 @@
 
         totalPrice.innerText = money(finalTotal);
         totalPerM2.innerText = money(finalTotal / apartmentSize) + ' / მ²';
-        document.getElementById('summaryPackage').innerText = service.name;
+        document.getElementById('summaryPackage').innerText = t(service.name);
         document.getElementById('summarySize').innerText = apartmentSize.toFixed(1) + ' მ²';
         document.getElementById('summaryRooms').innerText = rooms;
         document.getElementById('summaryTotal').innerText = money(finalTotal);
@@ -826,9 +842,9 @@ summaryRows.forEach(row => {
     tableHTML += `
         <tr class="hover:bg-slate-50">
             <td class="px-3 sm:px-4 py-2.5 text-sm text-slate-900 align-top">
-                <div class="truncate max-w-full">${row.name}</div>
+                <div class="truncate max-w-full">${t(row.name)}</div>
                 <div class="xl:hidden text-[11px] text-slate-400 mt-1 truncate">
-                   რაოდენობა: ${row.quantity} ${materialUnits[row.name] || 'მ²'}
+                   ${t('რაოდენობა')}: ${row.quantity} ${materialUnits[row.name] || 'მ²'}
                 </div>
             </td>
 
