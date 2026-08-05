@@ -171,23 +171,23 @@
     <div class="wrapper">
         <div class="hero">
             <p class="eyebrow justify-center">GaGo Agency</p>
-            <h1>რემონტის შეჯამება</h1>
-            <p class="subtext">თბილისი · საქართველო</p>
+            <h1>{{ __('რემონტის შეჯამება') }}</h1>
+            <p class="subtext">{{ __('თბილისი · საქართველო') }}</p>
         </div>
 
         <table class="two-col">
             <tr>
                 <td>
                     <div class="card">
-                        <div >პროექტის დეტალები</div>
-                        <div class="project-line"><strong>პაკეტი:</strong> {{ $data['package'] }}</div>
-                        <div class="project-line"><strong>ფართი:</strong> {{ $data['size'] }} მ²</div>
-                        <div class="project-line"><strong>ოთახები:</strong> {{ $data['rooms'] }}</div>
+                        <div >{{ __('პროექტის დეტალები') }}</div>
+                        <div class="project-line"><strong>{{ __('პაკეტი') }}:</strong> {{ $data['package'] }}</div>
+                        <div class="project-line"><strong>{{ __('ფართი') }}:</strong> {{ $data['size'] }} მ²</div>
+                        <div class="project-line"><strong>{{ __('ოთახები') }}:</strong> {{ $data['rooms'] }}</div>
                     </div>
                 </td>
                 <td>
                     <div >
-                        <div >საერთო ფასი</div>
+                        <div >{{ __('საერთო ფასი') }}</div>
                         <p class="total-value">{{ $data['totalFormatted'] ?? '' }}</p>
                     </div>
                 </td>
@@ -197,10 +197,10 @@
         <table class="summary-table">
             <thead>
                 <tr>
-                    <th>დეტალები</th>
-                    <th class="right">რაოდენობა</th>
-                    <th class="right">ღირებულება</th>
-                    <th class="right">საერთო ფასი</th>
+                    <th>{{ __('დეტალები') }}</th>
+                    <th class="right">{{ __('რაოდენობა') }}</th>
+                    <th class="right">{{ __('ღირებულება') }}</th>
+                    <th class="right">{{ __('საერთო ფასი') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -216,7 +216,7 @@
         </table>
 
         <div class="footer-total">
-            <div class="left">საბოლოო ჯამი</div>
+            <div class="left">{{ __('საბოლოო ჯამი') }}</div>
             <div class="rightval">{{ $data['totalFormatted'] ?? '' }}</div>
         </div>
     </div>
