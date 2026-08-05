@@ -4,15 +4,13 @@
         {{-- Top heading --}}
         <div class="space-y-3 text-center">
             <p class="text-[11px] uppercase tracking-[0.25em] text-sky-400">
-                დაგვიკავშირდით
+                {{ __('დაგვიკავშირდით') }}
             </p>
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-white">
-             უძრავი ქონება და სრული რემონტი — ერთი სანდო პარტნიორისგან
+             {{ __('უძრავი ქონება და სრული რემონტი — ერთი სანდო პარტნიორისგან') }}
             </h2>
             <p class="text-sm text-slate-300 max-w-2xl mx-auto">
-            გთავაზობთ სრულ მომსახურებას ბინის შერჩევიდან, შეძენიდან და რემონტის დაგეგმვიდან
-    სრულად დასრულებული საცხოვრებელი სივრცის ჩაბარებამდე. მოგვწერეთ და
-    სიამოვნებით დაგეხმარებით თქვენი პროექტის განხორციელებაში.
+            {{ __('გთავაზობთ სრულ მომსახურებას ბინის შერჩევიდან, შეძენიდან და რემონტის დაგეგმვიდან სრულად დასრულებული საცხოვრებელი სივრცის ჩაბარებამდე. მოგვწერეთ და სიამოვნებით დაგეხმარებით თქვენი პროექტის განხორციელებაში.') }}
             </p>
         </div>
 
@@ -52,7 +50,7 @@
                                 GaGo Agency 
                             </p>
                             <p class="text-[11px] text-slate-400">
-                                უძრავი ქონება • დიზაინი • სრული რემონტი
+                                {{ __('უძრავი ქონება • დიზაინი • სრული რემონტი') }}
                             </p>
                         </div>
                     </div>
@@ -74,18 +72,18 @@
 
                     <div class="space-y-2">
                         <p class="text-[11px] text-slate-400">
-    ჩვენი მომსახურება თქვენთვისაა, თუ:
+    {{ __('ჩვენი მომსახურება თქვენთვისაა, თუ:') }}
 </p>
 
 <ul class="text-[11px] text-slate-300 space-y-1">
-    <li>• ეძებთ უძრავ ქონებას სანდო მხარდაჭერით.</li>
-    <li>• გსურთ ხარისხიანი და ორგანიზებული რემონტი.</li>
-    <li>• გირჩევნიათ ყველა პროცესი ერთმა გუნდმა მართოს.</li>
+    <li>{{ __('• ეძებთ უძრავ ქონებას სანდო მხარდაჭერით.') }}</li>
+    <li>{{ __('• გსურთ ხარისხიანი და ორგანიზებული რემონტი.') }}</li>
+    <li>{{ __('• გირჩევნიათ ყველა პროცესი ერთმა გუნდმა მართოს.') }}</li>
 </ul>
                     </div>
 
                     <p class="text-[11px] text-slate-500">
-                      შეგიძლიათ მოგვწეროთ ქართულად ან ინგლისურად. როგორც წესი, პასუხს ერთი სამუშაო დღის განმავლობაში მიიღებთ.
+                      {{ __('შეგიძლიათ მოგვწეროთ ქართულად ან ინგლისურად. როგორც წესი, პასუხს ერთი სამუშაო დღის განმავლობაში მიიღებთ.') }}
                     </p>
                 </div>
 
@@ -93,10 +91,10 @@
                 <div class="md:w-7/12 space-y-4">
                     <div>
                         <p class="text-sm font-semibold text-white">
-                            გამოგვიგზავნეთ შეტყობინება
+                            {{ __('გამოგვიგზავნეთ შეტყობინება') }}
                         </p>
                         <p class="text-[12px] text-slate-400">
-                             მოგვწერეთ თქვენი მოთხოვნების შესახებ და ჩვენი გუნდი დაგიკავშირდებათ შესაბამისი შეთავაზებით.
+                             {{ __('მოგვწერეთ თქვენი მოთხოვნების შესახებ და ჩვენი გუნდი დაგიკავშირდებათ შესაბამისი შეთავაზებით.') }}
                         </p>
                     </div>
 
@@ -116,7 +114,7 @@
                         {{-- later: @csrf and real action --}}
                         <div class="grid gap-3 sm:grid-cols-2">
                             <div>
-                                <label class="block text-[12px] text-slate-300 mb-1.5">სახელი და გვარი</label>
+                                <label class="block text-[12px] text-slate-300 mb-1.5">{{ __('სახელი და გვარი') }}</label>
                                 <input
                                     type="text"
                                     name="sender_name"
@@ -126,7 +124,7 @@
                                 @error('sender_name') <p class="mt-1 text-xs text-red-400">{{ $message }}</p> @enderror
                             </div>
                             <div>
-                                <label class="block text-[12px] text-slate-300 mb-1.5">ელ. ფოსტა</label>
+                                <label class="block text-[12px] text-slate-300 mb-1.5">{{ __('ელ. ფოსტა') }}</label>
                                 <input
                                     type="email"
                                     name="sender_email"
@@ -138,7 +136,7 @@
                         </div>
 
                         <div>
-                            <label class="block text-[12px] text-slate-300 mb-1.5">შეტყობინება</label>
+                            <label class="block text-[12px] text-slate-300 mb-1.5">{{ __('შეტყობინება') }}</label>
                             <textarea
                                 name="sender_message"
                                 rows="4"
@@ -153,7 +151,7 @@
                                 type="submit"
                                 class="inline-flex items-center justify-center rounded-2xl bg-sky-500 px-7 py-2.5 text-sm font-semibold text-white hover:bg-sky-400 active:bg-sky-600 transition shadow-md shadow-sky-900/40"
                             >
-                                შეტყობინების გაგზავნა
+                                {{ __('შეტყობინების გაგზავნა') }}
                             </button>
                         </div>
                     </form>
