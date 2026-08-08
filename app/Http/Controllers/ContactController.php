@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
@@ -20,6 +21,8 @@ class ContactController extends Controller
             'sender_email' => e($data['sender_email']),
             'sender_message' => nl2br(e($data['sender_message'])),
         ];
+
+        try {
 
 Mail::send([], [], function ($message) use ($data, $safe) {
 
@@ -158,6 +161,17 @@ Best regards,<br>
     $message->to($data['sender_email'])
             ->subject('We received your message');
 });
+
+        } catch (\Throwable $e) {
+            // Never leak SMTP/mailer internals to the visitor — log it for us,
+            // show a safe generic message to them.
+            report($e);
+            Log::error('Contact form mail failed', ['error' => $e->getMessage()]);
+
+            return back()
+                ->withInput()
+                ->with('error', 'Sorry, we could not send your message right now. Please try again shortly or email us directly at GaGoAgency0@gmail.com.');
+        }
 
         return back()->with('success', 'Message sent successfully.');
     }
