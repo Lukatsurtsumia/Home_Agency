@@ -48,9 +48,10 @@
         <div class="relative">
             <div class="rounded-3xl overflow-hidden border border-slate-800 shadow-[0_24px_70px_rgba(15,23,42,0.9)]">
                 <img
-                    src="https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg"
+                    src="https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1000&h=1100"
                     alt="Modern apartment interior in Tbilisi"
                     class="w-full h-full object-cover"
+                    loading="lazy"
                 >
             </div>
             {{-- Optional small label on image --}}

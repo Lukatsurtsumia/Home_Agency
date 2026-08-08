@@ -37,6 +37,7 @@
             @foreach($services as $service)
                 <article class="service-card group relative min-h-[520px] overflow-hidden rounded-3xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-500">
             <img src="{{ asset($service['image']) }}"
+     loading="lazy"
      class="absolute inset-0 w-full h-full object-cover brightness-50 transition duration-[1200ms] group-hover:scale-110">
                   <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-black/30 to-black/90"></div>
 

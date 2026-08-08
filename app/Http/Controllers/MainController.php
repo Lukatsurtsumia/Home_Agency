@@ -76,7 +76,7 @@ class MainController extends Controller
 $services = [
             [
                 'name' => 'საბაზო',
-                'image' => 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg',
+                'image' => 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=900&h=1100',
                 'badge' => 'სტანდარტი',
                 'description' => 'მინიმალური მაგრამ სუფთა რემონტი საცხოვრებლად.',
                 'badge_class' => 'bg-green-400/90',
@@ -97,7 +97,7 @@ $services = [
             ],
             [
                 'name' => 'კომფორტ',
-                'image' => 'https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg',
+                'image' => 'https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=900&h=1100',
                 'badge' => 'კომფორტი',
                 'description' => 'დაბალანსებული მასალები და კომფორტული რემონტი.',
                 'badge_class' => 'bg-sky-500',
@@ -118,7 +118,7 @@ $services = [
             ],
             [
                 'name' => 'პრემიუმ',
-                'image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
+                'image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&h=1100&q=75',
                 'badge' => 'პრემიუმი',
                 'description' => 'უმაღლესი ხარისხის ინტერიერი და სრული დიზაინი.',
                 'badge_class' => 'bg-amber-400',
