@@ -238,12 +238,17 @@
                     </div>
                     <button
                         id="exportPdfBtn"
-                        class="flex items-center justify-center gap-2 px-5 py-3 bg-slate-900 text-white rounded-xl hover:bg-slate-800 transition font-medium text-sm w-full sm:w-auto">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        type="button"
+                        class="flex items-center justify-center gap-2 px-5 py-3 bg-slate-900 text-white rounded-xl hover:bg-slate-800 transition font-medium text-sm w-full sm:w-auto disabled:opacity-60 disabled:cursor-not-allowed">
+                        <svg id="exportPdfIcon" class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                   d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
-                        PDF
+                        <svg id="exportPdfSpinner" class="hidden w-5 h-5 shrink-0 animate-spin" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+                        </svg>
+                        <span id="exportPdfLabel">PDF</span>
                     </button>
                 </div>
 
@@ -946,32 +951,58 @@ summaryRows.forEach(row => {
         }
     });
 
-    document.getElementById('exportPdfBtn').addEventListener('click', async () => {
-        const response = await fetch('/generate-pdf', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
-            },
-            body: JSON.stringify(window.pdfSummary)
-        });
+    let pdfGenerating = false;
+    document.getElementById('exportPdfBtn').addEventListener('click', async (e) => {
+        // Generation takes a few seconds server-side (font-heavy PDF render).
+        // Guard against duplicate/overlapping clicks -- two at once just makes
+        // everything slower for no benefit, since only one download happens.
+        if (pdfGenerating) return;
+        pdfGenerating = true;
 
-        if (!response.ok) {
-            const errorText = await response.text();
-            console.log(errorText);
-            document.body.innerHTML = errorText;
-            return;
+        const btn = e.currentTarget;
+        const icon = document.getElementById('exportPdfIcon');
+        const spinner = document.getElementById('exportPdfSpinner');
+        const label = document.getElementById('exportPdfLabel');
+        const originalLabel = label.textContent;
+
+        btn.disabled = true;
+        icon.classList.add('hidden');
+        spinner.classList.remove('hidden');
+        label.textContent = @json(__('იტვირთება...'));
+
+        try {
+            const response = await fetch('/generate-pdf', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                },
+                body: JSON.stringify(window.pdfSummary)
+            });
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.log(errorText);
+                document.body.innerHTML = errorText;
+                return;
+            }
+
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'renovation-summary.pdf';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            window.URL.revokeObjectURL(url);
+        } finally {
+            pdfGenerating = false;
+            btn.disabled = false;
+            icon.classList.remove('hidden');
+            spinner.classList.add('hidden');
+            label.textContent = originalLabel;
         }
-
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'renovation-summary.pdf';
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        window.URL.revokeObjectURL(url);
     });
  loadUsdRate();
     updateAutoSizes();
