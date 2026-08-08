@@ -28,6 +28,7 @@ APP_NAME=GaGoAgency
 APP_ENV=production
 APP_DEBUG=false
 APP_URL=https://gagoagency.boxeros.com
+ASSET_URL=https://gagoagency.boxeros.com   # must match APP_URL -- see note below
 APP_KEY=            # generate: `php artisan key:generate --show` and paste (base64:...)
 APP_LOCALE=ka
 APP_FALLBACK_LOCALE=ka
@@ -69,3 +70,8 @@ php artisan storage:link      # so uploaded portfolio images are served
 - The MapTiler key for the map is currently hard-coded in the calculator JS — fine for now,
   but consider moving it to an env var later.
 - Health check: the app responds at `/up` (Laravel health route) and `/`.
+- **`ASSET_URL` is required**, not optional. The container sits behind Cloudflare +
+  Coolify's proxy and only ever sees plain HTTP internally, so without it, `@vite()`'s
+  CSS/JS links render as `http://` and get blocked as mixed content on the `https://`
+  page (broken styling/JS). Setting `ASSET_URL` equal to `APP_URL` forces Vite's asset
+  URLs to the correct scheme+host regardless of proxy header detection.
