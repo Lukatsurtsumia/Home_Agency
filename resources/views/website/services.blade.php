@@ -4,7 +4,7 @@
             <p class="text-xs font-semibold tracking-[0.35em] uppercase text-slate-500">
                {{ __('ჩვენი სერვისები') }}
             </p>
-            <h2 class="mt-4 text-4xl font-semibold text-slate-900">
+            <h2 class="mt-4 text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-900 break-words">
                  {{ __('სრულყოფილი გადაწყვეტილებები თქვენი უძრავი ქონებისთვის') }}
             </h2>
             <p class="mt-6 text-slate-600 text-sm leading-relaxed">
